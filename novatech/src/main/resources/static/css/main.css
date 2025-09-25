@@ -1,0 +1,15 @@
+.product-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    min-height: 200px;
+    font-size: 2rem;
+    width: 100%;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+} 

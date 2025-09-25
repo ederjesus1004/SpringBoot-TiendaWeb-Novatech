@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div th:fragment="header" class="bg-white border-bottom py-2">
+        <div class="container-fluid container-lg">
+            <div class="row align-items-center py-2">
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a th:href="@{/}" class="text-decoration-none">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-shopping-cart text-primary me-2 fs-4"></i>
+                            <span class="text-primary fw-bold fs-4">NovaTech</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-5 col-lg-6 d-none d-md-block">
+                    <div class="input-group">
+                        <select class="form-select flex-shrink-1" style="max-width: 120px">
+                            <option selected>Todo</option>
+                            <option>Electrónicos</option>
+                            <option>Computadoras</option>
+                            <option>Celulares</option>
+                        </select>
+                        <input type="text" class="form-control" placeholder="Buscar productos..." />
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 text-end">
+                    <div class="d-none d-md-inline-block me-3 align-middle">
+                        <span class="text-secondary small">
+                            Línea directa:<br />
+                            <span class="fw-bold">(+51) 123 456 789</span>
+                        </span>
+                    </div>
+                    <div class="d-inline-block align-middle">
+                        <a th:href="@{#}" class="btn btn-sm text-secondary position-relative me-2">
+                            <i class="fas fa-heart fs-5"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                0
+                            </span>
+                        </a>
+                        <a th:href="@{#}" class="btn btn-sm text-secondary position-relative" data-bs-toggle="modal" data-bs-target="#carrito-modal">
+                            <i class="fas fa-shopping-cart fs-5"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-md-none mb-2">
+                <div class="col-12">
+                    <div class="input-group">
+                        <select class="form-select flex-shrink-1" style="max-width: 80px">
+                            <option selected>Todo</option>
+                            <option>Elect.</option>
+                            <option>Comp.</option>
+                            <option>Cel.</option>
+                        </select>
+                        <input type="text" class="form-control" placeholder="Buscar..." />
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

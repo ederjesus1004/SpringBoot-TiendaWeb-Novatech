@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav th:fragment="sidebar(activeTab)" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+        <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${activeTab == 'dashboard' ? 'active' : ''}" th:href="@{/admin}">
+                        <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${activeTab == 'productos' ? 'active' : ''}" th:href="@{/admin/productos}">
+                        <i class="fas fa-box me-2"></i> Productos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${activeTab == 'categorias' ? 'active' : ''}" th:href="@{/admin/categorias}">
+                        <i class="fas fa-tags me-2"></i> Categorías
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${activeTab == 'marcas' ? 'active' : ''}" th:href="@{/admin/marcas}">
+                        <i class="fas fa-trademark me-2"></i> Marcas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${activeTab == 'pedidos' ? 'active' : ''}" th:href="@{/admin/pedidos}">
+                        <i class="fas fa-shopping-cart me-2"></i> Pedidos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${activeTab == 'usuarios' ? 'active' : ''}" th:href="@{/admin/usuarios}">
+                        <i class="fas fa-users me-2"></i> Usuarios
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html> 

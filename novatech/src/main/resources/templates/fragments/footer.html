@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <footer th:fragment="footer" class="bg-dark text-white py-5 mt-0">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-content">
+                        <h4 class="text-primary mb-4">NovaTech</h4>
+                        <p class="mb-4">Innovación y tecnología al alcance de todos. Descubre las últimas tendencias en dispositivos y accesorios tecnológicos.</p>
+                        <div class="social-links">
+                            <a th:href="@{#}" class="btn btn-outline-light d-inline-flex justify-content-center align-items-center me-2" style="width: 35px; height: 35px; border-radius: 50%; padding: 0;">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a th:href="@{#}" class="btn btn-outline-light d-inline-flex justify-content-center align-items-center me-2 hover-primary" style="width: 35px; height: 35px; border-radius: 50%; padding: 0;">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a th:href="@{#}" class="btn btn-outline-light d-inline-flex justify-content-center align-items-center me-2 hover-primary" style="width: 35px; height: 35px; border-radius: 50%; padding: 0;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a th:href="@{#}" class="btn btn-outline-light d-inline-flex justify-content-center align-items-center hover-primary" style="width: 35px; height: 35px; border-radius: 50%; padding: 0;">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="mb-4">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a th:href="@{/}" class="text-light text-decoration-none"><i
+                                    class="fas fa-chevron-right me-2"></i>Inicio</a></li>
+                        <li class="mb-2"><a th:href="@{/tienda}" class="text-light text-decoration-none"><i
+                                    class="fas fa-chevron-right me-2"></i>Tienda</a></li>
+                        <li class="mb-2"><a th:href="@{/about}" class="text-light text-decoration-none"><i
+                                    class="fas fa-chevron-right me-2"></i>Acerca de</a></li>
+                        <li class="mb-2"><a th:href="@{/blog}" class="text-light text-decoration-none"><i
+                                    class="fas fa-chevron-right me-2"></i>Blog</a></li>
+                        <li class="mb-2"><a th:href="@{/contacto}" class="text-light text-decoration-none"><i
+                                    class="fas fa-chevron-right me-2"></i>Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Categorías</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="tienda.html?cat=smartphones" class="text-light text-decoration-none"><i
+                                    class="fas fa-mobile-alt me-2"></i>Smartphones</a></li>
+                        <li class="mb-2"><a href="tienda.html?cat=laptops" class="text-light text-decoration-none"><i
+                                    class="fas fa-laptop me-2"></i>Laptops</a></li>
+                        <li class="mb-2"><a href="tienda.html?cat=tablets" class="text-light text-decoration-none"><i
+                                    class="fas fa-tablet-alt me-2"></i>Tablets</a></li>
+                        <li class="mb-2"><a href="tienda.html?cat=accesorios" class="text-light text-decoration-none"><i
+                                    class="fas fa-headphones me-2"></i>Accesorios</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Contáctanos</h5>
+                    <div class="contact-info">
+                        <p class="d-flex align-items-center mb-3">
+                            <span class="bg-primary me-3 d-flex justify-content-center align-items-center rounded-circle" style="width: 40px; height: 40px;">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </span> Av. Tecnológica 123, Lima, Perú
+                        </p>
+                        <p class="d-flex align-items-center mb-3">
+                            <span class="bg-primary me-3 d-flex justify-content-center align-items-center rounded-circle" style="width: 40px; height: 40px;">
+                                <i class="fas fa-phone text-white"></i>
+                            </span> +51 123 456 789
+                        </p>
+                        <p class="d-flex align-items-center mb-3">
+                            <span class="bg-primary me-3 d-flex justify-content-center align-items-center rounded-circle" style="width: 40px; height: 40px;">
+                                <i class="fas fa-envelope text-white"></i>
+                            </span> info@NovaTech.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-3">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-md-0">&copy; 2023 NovaTech. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a th:href="@{#}" class="text-light text-decoration-none me-3">Términos y Condiciones</a>
+                    <a th:href="@{#}" class="text-light text-decoration-none">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <div th:fragment="scripts">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head}">
+</head>
+
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+
+    <main class="pt-4 mt-4">
+
+        <section class="py-5 bg-light">
+            <div class="container-fluid container-lg py-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="mb-4">
+                            <h1 class="display-4 fw-bold mb-4">Contáctanos</h1>
+                            <p class="lead mb-4">Estamos aquí para ayudarte. ¿Tienes alguna pregunta, sugerencia o inquietud? Nuestro equipo está listo para asistirte.</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a th:href="@{#contactForm}" class="btn btn-primary">Enviar mensaje</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative rounded-4 overflow-hidden shadow-lg">
+                            <img th:src="@{img/contact-hero.avif}" alt="Servicio al cliente" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-4" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                                <div class="text-white">
+                                    <h3 class="h4 mb-2">Atención personalizada</h3>
+                                    <p class="mb-0">Nuestro equipo de expertos está disponible para resolver todas tus dudas
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="contact-section py-5">
+            <div class="container-fluid container-lg">
+                <div class="row g-4 mb-5">
+
+                    <div class="col-lg-5">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                            <div class="card-header bg-primary text-white p-4 border-0">
+                                <h2 class="h3 fw-bold mb-1">Información de Contacto</h2>
+                                <p class="mb-0 opacity-75">Estamos aquí para ayudarte</p>
+                            </div>
+                            <div class="card-body p-4 p-md-5">
+                                <div class="contact-info">
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle p-3 me-3">
+                                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-1">Dirección</h5>
+                                            <p class="text-secondary mb-0">Av. Tecnológica 123, Lima, Perú</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="icon-box bg-success bg-opacity-10 text-success rounded-circle p-3 me-3">
+                                            <i class="fas fa-phone fa-fw"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-1">Teléfono</h5>
+                                            <p class="text-secondary mb-0"><a class="text-decoration-none">+51 123 456 789</a></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="icon-box bg-info bg-opacity-10 text-info rounded-circle p-3 me-3">
+                                            <i class="fas fa-envelope fa-fw"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-1">Email</h5>
+                                            <p class="text-secondary mb-0"><a class="text-decoration-none">info@technova.com</a></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-center mb-4">
+                                        <div class="icon-box bg-warning bg-opacity-10 text-warning rounded-circle p-3 me-3">
+                                            <i class="fas fa-clock fa-fw"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-1">Horario de Atención</h5>
+                                            <ul class="list-unstyled text-secondary mb-0">
+                                                <li class="d-flex align-items-center mb-1">
+                                                    <i class="fas fa-check-circle text-success me-2 small"></i>
+                                                    <span>Lunes - Viernes: 9am - 8pm</span>
+                                                </li>
+                                                <li class="d-flex align-items-center mb-1">
+                                                    <i class="fas fa-check-circle text-success me-2 small"></i>
+                                                    <span>Sábados: 10am - 6pm</span>
+                                                </li>
+                                                <li class="d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-2 small"></i>
+                                                    <span>Domingos: 10am - 2pm</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="social-media mt-4 pt-3 border-top">
+                                    <h5 class="fw-bold mb-3">Síguenos en Redes Sociales</h5>
+                                    <div class="social-icons d-flex">
+                                        <a th:href="@{#}" class="btn btn-outline-primary rounded-circle me-2" title="Facebook">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a th:href="@{#}" class="btn btn-outline-info rounded-circle me-2" title="Twitter">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a th:href="@{#}" class="btn btn-outline-danger rounded-circle me-2" title="Instagram">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a th:href="@{#}" class="btn btn-outline-primary rounded-circle me-2" title="LinkedIn">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a th:href="@{#}" class="btn btn-outline-danger rounded-circle" title="YouTube">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-7" id="contactForm">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                            <div class="card-header bg-primary text-white p-4 border-0">
+                                <h2 class="h3 fw-bold mb-1">Envíanos un Mensaje</h2>
+                                <p class="mb-0 opacity-75">Estamos aquí para ayudarte con cualquier consulta</p>
+                            </div>
+                            <div class="card-body p-4 p-md-5">
+                                <p class="text-muted mb-4">Complete el siguiente formulario y nos pondremos en contacto contigo lo antes posible.</p>
+
+                                <form id="contact-form">
+                                    <div class="row g-3 mb-1">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" id="first-name" placeholder="Tu nombre" required>
+                                                <label for="first-name">Nombre</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" id="last-name" placeholder="Tu apellido" required>
+                                                <label for="last-name">Apellido</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-3 mb-1">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="email" class="form-control" id="email" placeholder="tu@correo.com" required>
+                                                <label for="email">Correo Electrónico</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="tel" class="form-control" id="phone" placeholder="Tu número de teléfono">
+                                                <label for="phone">Teléfono</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="subject" required>
+                                            <option value="" selected disabled>Selecciona un asunto</option>
+                                            <option value="general">Consulta General</option>
+                                            <option value="support">Soporte Técnico</option>
+                                            <option value="sales">Ventas</option>
+                                            <option value="feedback">Comentarios</option>
+                                            <option value="other">Otro</option>
+                                        </select>
+                                        <label for="subject">Asunto</label>
+                                    </div>
+
+                                    <div class="form-floating mb-4">
+                                        <textarea class="form-control" id="message" style="height: 150px" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                                        <label for="message">Mensaje</label>
+                                    </div>
+
+                                    <div class="mb-4 form-check">
+                                        <input type="checkbox" class="form-check-input" id="privacy-policy" required>
+                                        <label class="form-check-label" for="privacy-policy">
+                                            Acepto la <a th:href="@{#}" data-bs-toggle="modal" data-bs-target="#privacyModal"
+                                                class="text-primary">Política de Privacidad</a>
+                                        </label>
+                                    </div>
+
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-primary btn-lg py-3 fw-bold">Enviar Mensaje
+                                            <i class="fas fa-paper-plane ms-2"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="faq-section py-5 bg-light">
+            <div class="container-fluid container-lg py-4">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-2">Preguntas Frecuentes</h2>
+                    <p class="text-muted">Encuentra respuestas a las preguntas más comunes sobre nuestros productos y servicios
+                    </p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                            <div class="card-body p-0">
+                                <div class="accordion accordion-flush" id="faqAccordion">
+                                    <div class="accordion-item border-0 border-bottom">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <i class="fas fa-credit-card text-primary me-3"></i>
+                                                ¿Cuáles son los métodos de pago aceptados?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body pt-4 pb-4 px-4 px-md-5">
+                                                <p class="text-secondary mb-3">Aceptamos diversos métodos de pago para tu comodidad:</p>
+                                                <ul class="text-secondary">
+                                                    <li>Tarjetas de crédito: Visa, MasterCard, American Express</li>
+                                                    <li>Tarjetas de débito</li>
+                                                    <li>PayPal</li>
+                                                    <li>Transferencias bancarias</li>
+                                                    <li>Pago contra entrega (en zonas seleccionadas)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0 border-bottom">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                <i class="fas fa-truck text-success me-3"></i>
+                                                ¿Cuál es el tiempo de entrega de los productos?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body pt-4 pb-4 px-4 px-md-5">
+                                                <p class="text-secondary mb-3">Nuestros tiempos de entrega varían según la ubicación:</p>
+                                                <ul class="text-secondary">
+                                                    <li><span class="fw-medium">Lima Metropolitana:</span> 3-5 días hábiles
+                                                    </li>
+                                                    <li><span class="fw-medium">Provincias:</span> 5-7 días hábiles</li>
+                                                    <li><span class="fw-medium">Envío Express:</span> 24-48 horas (con costo adicional, disponible en zonas seleccionadas)</li>
+                                                </ul>
+                                                <p class="text-secondary mb-0 mt-3"><i class="fas fa-info-circle text-primary me-2"></i> Los tiempos pueden variar durante temporadas altas o eventos especiales.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0 border-bottom">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                <i class="fas fa-undo text-danger me-3"></i>
+                                                ¿Cuál es la política de devoluciones y garantías?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body pt-4 pb-4 px-4 px-md-5">
+                                                <p class="text-secondary mb-3">Nuestra política de devoluciones y garantías está diseñada para tu tranquilidad:</p>
+                                                <ul class="text-secondary">
+                                                    <li><span class="fw-medium">Período de devolución:</span> 14 días para la mayoría de los productos</li>
+                                                    <li><span class="fw-medium">Condición:</span> El producto debe estar en su estado original</li>
+                                                    <li><span class="fw-medium">Garantía:</span> Todos los productos cuentan con la garantía oficial del fabricante</li>
+                                                </ul>
+                                                <p class="text-secondary mb-0 mt-3">Para más detalles, puedes consultar nuestra <a th:href="@{#}" class="text-primary">política completa de
+                                                        devoluciones</a>.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0 border-bottom">
+                                        <h2 class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                <i class="fas fa-store text-warning me-3"></i>
+                                                ¿Tienen tiendas físicas?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body pt-4 pb-4 px-4 px-md-5">
+                                                <p class="text-secondary mb-3">Sí, contamos con 15 tiendas físicas en diferentes ciudades del Perú:</p>
+                                                <div class="row g-3 mb-3">
+                                                    <div class="col-md-4">
+                                                        <div class="card h-100 border-0 shadow-sm">
+                                                            <div class="card-body">
+                                                                <h6 class="fw-bold">Lima</h6>
+                                                                <p class="small text-secondary mb-0">6 tiendas</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="card h-100 border-0 shadow-sm">
+                                                            <div class="card-body">
+                                                                <h6 class="fw-bold">Arequipa</h6>
+                                                                <p class="small text-secondary mb-0">3 tiendas</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="card h-100 border-0 shadow-sm">
+                                                            <div class="card-body">
+                                                                <h6 class="fw-bold">Trujillo</h6>
+                                                                <p class="small text-secondary mb-0">2 tiendas</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="text-secondary mb-0">Consulta nuestra <a th:href="@{#}" class="text-primary">sección de tiendas</a> para encontrar la ubicación más cercana.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+                                        <h2 class="accordion-header" id="headingFive">
+                                            <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                <i class="fas fa-shipping-fast text-info me-3"></i>
+                                                ¿Cómo puedo hacer seguimiento a mi pedido?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body pt-4 pb-4 px-4 px-md-5">
+                                                <p class="text-secondary mb-3">Hacer seguimiento a tu pedido es muy sencillo:
+                                                </p>
+                                                <ol class="text-secondary">
+                                                    <li>Recibirás un correo electrónico con tu número de seguimiento al procesar tu pedido</li>
+                                                    <li>Visita nuestra sección <a th:href="@{#}" class="text-primary">"Seguimiento de Pedidos"</a> en el sitio web</li>
+                                                    <li>Ingresa tu número de seguimiento</li>
+                                                    <li>También puedes usar este número directamente en la página web del courier asignado</li>
+                                                </ol>
+                                                <div class="alert alert-info mt-3 mb-0 d-flex align-items-center">
+                                                    <i class="fas fa-info-circle me-3 fs-4"></i>
+                                                    <div>Si tienes problemas para rastrear tu pedido, no dudes en contactar a nuestro servicio de atención al cliente.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <p class="text-muted mb-3">¿No encontraste lo que buscabas?</p>
+                            <a th:href=@{#contactForm} class="btn btn-outline-primary px-4 py-2">Contáctanos
+                                directamente</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="cta-section py-5 bg-light">
+            <div class="container-fluid container-lg py-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                            <div class="card-body p-0">
+                                <div class="row g-0">
+                                    <div class="col-lg-6 bg-primary p-5 text-white d-flex flex-column justify-content-center">
+                                        <h2 class="fw-bold mb-3">¿No encuentras lo que buscas?</h2>
+                                        <p class="mb-4 opacity-75">Nuestro equipo de atención al cliente está disponible para ayudarte con cualquier consulta que puedas tener.</p>
+                                        <div class="d-flex flex-wrap gap-2">
+                                            <a th:href="@{#}" class="btn btn-light fw-medium px-4 py-2">
+                                                <i class="fas fa-envelope me-2"></i> Escríbenos
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 p-5 d-flex flex-column justify-content-center">
+                                        <h3 class="fw-bold mb-3">Suscríbete a nuestro boletín</h3>
+                                        <p class="text-secondary mb-4">Recibe las últimas noticias, ofertas exclusivas y contenido personalizado directamente en tu bandeja de entrada.</p>
+                                        <form class="newsletter-form">
+                                            <div class="input-group mb-3">
+                                                <input type="email" class="form-control" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico">
+                                                <button class="btn btn-primary px-4" type="submit">
+                                                    <i class="fas fa-paper-plane me-2"></i> Suscribirse
+                                                </button>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="newsletter-privacy" required>
+                                                <label class="form-check-label small text-secondary" for="newsletter-privacy">
+                                                    Acepto recibir comunicaciones de marketing y la <a th:href="@{#}"
+                                                        class="text-primary">política de privacidad</a>
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <div th:replace="~{fragments/carrito-modal :: carrito-modal}"></div>
+    <div th:replace="~{fragments/footer :: scripts}"></div>
+</body>
+
+</html>

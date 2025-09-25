@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Pedido - NovaTech Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+
+<body>
+    <nav th:replace="~{admin/fragments/topbar :: topbar}"></nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/admin}">
+                                <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/admin/productos}">
+                                <i class="fas fa-box me-2"></i> Productos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/admin/categorias}">
+                                <i class="fas fa-tags me-2"></i> Categorías
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" th:href="@{/admin/pedidos}">
+                                <i class="fas fa-shopping-cart me-2"></i> Pedidos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/admin/usuarios}">
+                                <i class="fas fa-users me-2"></i> Usuarios
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2" th:text="${detalle.id == null ? 'Añadir Producto al Pedido' : 'Editar Producto del Pedido'}">Detalle de Pedido</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <a th:href="@{/admin/pedidos/{id}(id=${pedido.id})}" class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-1"></i> Volver al Pedido
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Información del Pedido #<span th:text="${pedido.id}">1</span></h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <p class="mb-1 text-muted">Cliente</p>
+                                        <p class="fw-bold" th:text="${pedido.usuario.nombre + ' ' + pedido.usuario.apellido}">Juan Pérez</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-1 text-muted">Fecha</p>
+                                        <p class="fw-bold" th:text="${#temporals.format(pedido.fecha, 'dd/MM/yyyy HH:mm')}">01/01/2023 14:30</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <form th:action="@{/admin/pedidos/{pedidoId}/detalles/guardar(pedidoId=${pedido.id})}" th:object="${detalle}" method="post">
+                                    <input type="hidden" th:field="*{id}" />
+                                    <input type="hidden" th:field="*{pedido}" />
+                                    
+                                    <div class="mb-3">
+                                        <label for="producto" class="form-label">Producto *</label>
+                                        <select class="form-select" id="producto" th:field="*{producto}" required onchange="actualizarPrecio()">
+                                            <option value="">Seleccione un producto</option>
+                                            <option th:each="prod : ${productos}" th:value="${prod.id}" th:text="${prod.nombre + ' - S/. ' + #numbers.formatDecimal(prod.precio, 1, 2)}" th:data-precio="${prod.precio}"></option>
+                                        </select>
+                                        <div class="text-danger" th:if="${#fields.hasErrors('producto')}" th:errors="*{producto}"></div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="precioUnitario" class="form-label">Precio Unitario *</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">S/.</span>
+                                            <input type="number" class="form-control" id="precioUnitario" th:field="*{precioUnitario}" step="0.01" min="0" required>
+                                        </div>
+                                        <div class="text-danger" th:if="${#fields.hasErrors('precioUnitario')}" th:errors="*{precioUnitario}"></div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="cantidad" class="form-label">Cantidad *</label>
+                                        <input type="number" class="form-control" id="cantidad" th:field="*{cantidad}" min="1" required onchange="calcularSubtotal()">
+                                        <div class="text-danger" th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}"></div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="subtotal" class="form-label">Subtotal *</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">S/.</span>
+                                            <input type="number" class="form-control" id="subtotal" th:field="*{subtotal}" step="0.01" min="0" readonly>
+                                        </div>
+                                        <div class="text-danger" th:if="${#fields.hasErrors('subtotal')}" th:errors="*{subtotal}"></div>
+                                    </div>
+                                    
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <a th:href="@{/admin/pedidos/{id}(id=${pedido.id})}" class="btn btn-secondary me-md-2">Cancelar</a>
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/admin.js}"></script>
+    <script th:src="@{/js/detalle-form.js}"></script>
+</body>
+
+</html> 

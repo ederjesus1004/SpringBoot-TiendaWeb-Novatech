@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div th:fragment="carrito-modal" class="modal fade" id="carrito-modal" tabindex="-1" aria-labelledby="carrito-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="carrito-modal-label">
+                        <i class="fas fa-shopping-cart me-2"></i> Carrito de Compras
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <div th:with="carritoVacio=false">
+
+                        <div th:if="${carritoVacio}" class="text-center py-5">
+                            <i class="fas fa-shopping-cart text-muted mb-3" style="font-size: 4rem;"></i>
+                            <h4 class="text-muted">Tu carrito está vacío</h4>
+                            <p class="text-muted mb-4">¡Agrega algunos productos para comenzar!</p>
+                            <a th:href="@{/tienda}" class="btn btn-primary">
+                                <i class="fas fa-store me-2"></i>Ir a la Tienda
+                            </a>
+                        </div>
+
+                        <div th:if="${!carritoVacio}">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Subtotal</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img th:src="@{/img/product1.png}" alt="Smartphone XYZ" width="60" class="me-3">
+                                                    <div>
+                                                        <h6 class="mb-0">Smartphone XYZ Pro</h6>
+                                                        <small class="text-muted">Color: Azul, Memoria: 128GB</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>S/ 1,299.99</td>
+                                            <td>
+                                                <div class="input-group input-group-sm" style="width: 100px;">
+                                                    <button class="btn btn-outline-secondary" type="button">-</button>
+                                                    <input type="text" class="form-control text-center" value="1">
+                                                    <button class="btn btn-outline-secondary" type="button">+</button>
+                                                </div>
+                                            </td>
+                                            <td>S/ 1,299.99</td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-outline-danger">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img th:src="@{/img/product1.png}" alt="Auriculares Inalámbricos" width="60" class="me-3">
+                                                    <div>
+                                                        <h6 class="mb-0">Auriculares Inalámbricos Premium</h6>
+                                                        <small class="text-muted">Color: Negro</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>S/ 299.99</td>
+                                            <td>
+                                                <div class="input-group input-group-sm" style="width: 100px;">
+                                                    <button class="btn btn-outline-secondary" type="button">-</button>
+                                                    <input type="text" class="form-control text-center" value="1">
+                                                    <button class="btn btn-outline-secondary" type="button">+</button>
+                                                </div>
+                                            </td>
+                                            <td>S/ 299.99</td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-outline-danger">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img th:src="@{/img/product1.png}" alt="Smartwatch Serie 5" width="60" class="me-3">
+                                                    <div>
+                                                        <h6 class="mb-0">Smartwatch Serie 5</h6>
+                                                        <small class="text-muted">Color: Plata</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>S/ 499.99</td>
+                                            <td>
+                                                <div class="input-group input-group-sm" style="width: 100px;">
+                                                    <button class="btn btn-outline-secondary" type="button">-</button>
+                                                    <input type="text" class="form-control text-center" value="1">
+                                                    <button class="btn btn-outline-secondary" type="button">+</button>
+                                                </div>
+                                            </td>
+                                            <td>S/ 499.99</td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-outline-danger">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Código de cupón">
+                                        <button class="btn btn-outline-primary" type="button">Aplicar</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5 class="mb-3">Resumen de la compra</h5>
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Subtotal:</span>
+                                            <span>S/ 2,099.97</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Descuento:</span>
+                                            <span class="text-success">-S/ 0.00</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Envío:</span>
+                                            <span>S/ 15.00</span>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex justify-content-between fw-bold">
+                                            <span>Total:</span>
+                                            <span>S/ 2,114.97</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
+                    <button type="button" class="btn btn-primary">Proceder al pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

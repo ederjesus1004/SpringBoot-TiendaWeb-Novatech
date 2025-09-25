@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Marcas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+    <nav th:replace="~{admin/fragments/topbar :: topbar}"></nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav th:replace="~{admin/fragments/sidebar :: sidebar('marcas')}"></nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Administración de Marcas</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <a th:href="@{/admin/marcas/nueva}" class="btn btn-primary">
+                            <i class="fas fa-plus-circle"></i> Nueva Marca
+                        </a>
+                    </div>
+                </div>
+
+                <div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+                <div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Logo</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Productos</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:if="${#lists.isEmpty(marcas)}">
+                                <td colspan="6" class="text-center">No hay marcas registradas</td>
+                            </tr>
+                            <tr th:each="marca : ${marcas}">
+                                <td th:text="${marca.id}"></td>
+                                <td>
+                                    <img th:if="${marca.logo != null}" th:src="${marca.logo}" class="img-thumbnail" style="max-width: 50px;">
+                                    <span th:if="${marca.logo == null}">Sin logo</span>
+                                </td>
+                                <td th:text="${marca.nombre}"></td>
+                                <td th:text="${#strings.abbreviate(marca.descripcion, 50)}"></td>
+                                <td th:text="${marca.productos != null ? marca.productos.size() : 0}"></td>
+                                <td>
+                                    <a th:href="@{/admin/marcas/editar/} + ${marca.id}" class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a th:href="@{/admin/marcas/eliminar/} + ${marca.id}" 
+                                       class="btn btn-danger btn-sm"
+                                       onclick="return confirm('¿Está seguro que desea eliminar esta marca?')">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/admin.js}"></script>
+</body>
+</html> 

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head}">
+</head>
+
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+
+    <main class="pt-4 mt-4">
+
+        <section class="about-hero bg-primary text-white py-5 mb-5">
+            <div class="container-fluid container-lg">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h1 class="display-4 fw-bold mb-3">Nuestra Historia</h1>
+                        <p class="lead mb-4">Innovando en el mundo de la tecnología desde 2010</p>
+                        <p class="mb-4">En NovaTech, nos apasiona la tecnología y creemos en su poder para transformar vidas y negocios. Nuestra misión es hacer que la tecnología de vanguardia sea accesible para todos.</p>
+                        <a th:href="@{/contacto}" class="btn btn-light btn-lg px-4 me-2">Contáctanos</a>
+                        <a th:href="@{/tienda}" class="btn btn-outline-light btn-lg px-4">Ver Productos</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative rounded overflow-hidden shadow-lg" style="padding-top: 65%;">
+                            <img th:src="@{/img/about-hero.jpg}" alt="Equipo NovaTech" class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="mission-vision py-5">
+            <div class="container-fluid container-lg">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">Nuestra Misión y Visión</h2>
+                    <p class="text-muted mx-auto" style="max-width: 700px;">Conoce los valores que nos impulsan a ser mejores cada día y a ofrecer la mejor experiencia a nuestros clientes.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100 border-0 shadow-sm hover-shadow transition">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="text-center mb-4">
+                                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center" style="width: 80px; height: 80px;">
+                                        <i class="fas fa-bullseye fa-2x text-primary"></i>
+                                    </div>
+                                </div>
+                                <h3 class="card-title text-center mb-4">Nuestra Misión</h3>
+                                <p class="card-text mb-4">Proporcionar productos tecnológicos innovadores y de alta calidad, ofreciendo un servicio excepcional y experiencias de compra personalizadas que satisfagan las necesidades de nuestros clientes.</p>
+                                <h5 class="fw-semibold mb-3">Nos esforzamos por:</h5>
+                                <ul class="list-unstyled">
+                                    <li class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 30px; height: 30px;">
+                                            <i class="fas fa-check text-white small"></i>
+                                        </span> Ofrecer productos tecnológicos de la más alta calidad
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 30px; height: 30px;">
+                                            <i class="fas fa-check text-white small"></i>
+                                        </span> Proporcionar asesoramiento técnico experto
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 30px; height: 30px;">
+                                            <i class="fas fa-check text-white small"></i>
+                                        </span> Garantizar una experiencia de compra excepcional
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <span class="bg-primary rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 30px; height: 30px;">
+                                            <i class="fas fa-check text-white small"></i>
+                                        </span> Mantener precios competitivos y justos
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card h-100 border-0 shadow-sm hover-shadow transition">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="text-center mb-4">
+                                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex justify-content-center align-items-center" style="width: 80px; height: 80px;">
+                                        <i class="fas fa-eye fa-2x text-primary"></i>
+                                    </div>
+                                </div>
+                                <h3 class="card-title text-center mb-4">Nuestra Visión</h3>
+                                <p class="card-text mb-4">Ser reconocidos como el líder en el mercado de tecnología, distinguiéndonos por nuestra innovación, calidad y compromiso con la satisfacción del cliente.</p>
+                                <h5 class="fw-semibold mb-3">Aspiramos a:</h5>
+                                <ul class="list-unstyled">
+                                    <li class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 30px; height: 30px;">
+                                            <i class="fas fa-check text-white small"></i>
+                                        </span> Expandir nuestra presencia a nivel nacional e internacional
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 30px; height: 30px;">
+                                            <i class="fas fa-check text-white small"></i>
+                                        </span> Ser pioneros en la introducción de nuevas tecnologías
+                                    </li>
+                                    <li class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 30px; height: 30px;">
+                                            <i class="fas fa-check text-white small"></i>
+                                        </span> Desarrollar prácticas sostenibles y responsables
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        <span class="bg-primary rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 30px; height: 30px;">
+                                            <i class="fas fa-check text-white small"></i>
+                                        </span> Contribuir positivamente a nuestras comunidades
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="company-timeline py-6 bg-light" style="padding-top: 5rem; padding-bottom: 5rem;">
+            <div class="container-fluid container-lg">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">Nuestra Trayectoria</h2>
+                    <p class="text-muted mx-auto" style="max-width: 700px;">Conoce la historia de NovaTech y cómo hemos crecido a lo largo de los años para convertirnos en líderes del mercado.</p>
+                </div>
+                <div class="position-relative">
+
+                    <div class="d-none d-md-block position-absolute top-0 bottom-0 start-50 translate-middle-x" style="width: 2px; background-color: #dee2e6;"></div>
+
+
+                    <div class="row mb-5">
+                        <div class="col-md-6 pe-md-5 mb-4 mb-md-0">
+                            <div class="card border-0 shadow-sm hover-shadow transition h-100">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary text-white rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 50px; height: 50px; font-weight: bold;">2010</span>
+                                        <h4 class="mb-0">Fundación de NovaTech</h4>
+                                    </div>
+                                    <p class="mb-0">Comenzamos como una pequeña tienda en Lima con solo 5 empleados y un sueño de revolucionar el mercado tecnológico peruano.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-none d-md-block"></div>
+                    </div>
+
+
+                    <div class="row mb-5">
+                        <div class="col-md-6 d-none d-md-block"></div>
+                        <div class="col-md-6 ps-md-5">
+                            <div class="card border-0 shadow-sm hover-shadow transition h-100">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary text-white rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 50px; height: 50px; font-weight: bold;">2013</span>
+                                        <h4 class="mb-0">Primera Expansión</h4>
+                                    </div>
+                                    <p class="mb-0">Abrimos nuestra segunda tienda en Arequipa y lanzamos nuestra primera plataforma de comercio electrónico.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row mb-5">
+                        <div class="col-md-6 pe-md-5 mb-4 mb-md-0">
+                            <div class="card border-0 shadow-sm hover-shadow transition h-100">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary text-white rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 50px; height: 50px; font-weight: bold;">2016</span>
+                                        <h4 class="mb-0">Crecimiento Nacional</h4>
+                                    </div>
+                                    <p class="mb-0">Expandimos nuestra presencia a 5 ciudades principales del Perú y formamos alianzas estratégicas con fabricantes internacionales.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-none d-md-block"></div>
+                    </div>
+
+
+                    <div class="row mb-5">
+                        <div class="col-md-6 d-none d-md-block"></div>
+                        <div class="col-md-6 ps-md-5">
+                            <div class="card border-0 shadow-sm hover-shadow transition h-100">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary text-white rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 50px; height: 50px; font-weight: bold;">2019</span>
+                                        <h4 class="mb-0">Innovación Tecnológica</h4>
+                                    </div>
+                                    <p class="mb-0">Implementamos un sistema de inteligencia artificial para personalizar la experiencia de compra y lanzamos nuestra aplicación móvil.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row mb-5">
+                        <div class="col-md-6 pe-md-5 mb-4 mb-md-0">
+                            <div class="card border-0 shadow-sm hover-shadow transition h-100">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary text-white rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 50px; height: 50px; font-weight: bold;">2022</span>
+                                        <h4 class="mb-0">Compromiso Sostenible</h4>
+                                    </div>
+                                    <p class="mb-0">Iniciamos nuestro programa de sostenibilidad y reciclaje tecnológico, comprometiéndonos con el medio ambiente.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-none d-md-block"></div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6 d-none d-md-block"></div>
+                        <div class="col-md-6 ps-md-5">
+                            <div class="card border-0 shadow-sm hover-shadow transition h-100">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="bg-primary text-white rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width: 50px; height: 50px; font-weight: bold;">2025</span>
+                                        <h4 class="mb-0">Presente y Futuro</h4>
+                                    </div>
+                                    <p class="mb-0">Hoy contamos con más de 15 tiendas, 200 empleados y seguimos creciendo con la misma pasión por la innovación y el servicio al cliente.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="team-section py-6 bg-white" style="padding-top: 5rem; padding-bottom: 5rem;">
+            <div class="container-fluid container-lg">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold mb-3">Nuestro Equipo Directivo</h2>
+                    <p class="text-muted mx-auto" style="max-width: 700px;">Conoce a las personas que hacen posible que NovaTech sea líder en el mercado tecnológico.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card team-card border-0 shadow-sm hover-shadow transition h-100">
+                            <div class="position-relative overflow-hidden rounded-top" style="padding-top: 100%;">
+                                <img th:src="@{/img/team1.jpg}" class="position-absolute top-0 start-0 w-100 h-100" alt="CEO" style="object-fit: cover;">
+                                <div class="team-overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-3 translate-middle-y d-flex justify-content-center" style="transform: translateY(100%); transition: transform 0.3s ease;">
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="far fa-envelope"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title mb-1">Carlos Mendoza</h5>
+                                <p class="text-primary fw-semibold mb-2">CEO & Fundador</p>
+                                <p class="card-text text-muted small mb-0">Con más de 20 años de experiencia en el sector tecnológico y una visión clara para el futuro.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card team-card border-0 shadow-sm hover-shadow transition h-100">
+                            <div class="position-relative overflow-hidden rounded-top" style="padding-top: 100%;">
+                                <img th:src="@{/img/team1.jpg}" class="position-absolute top-0 start-0 w-100 h-100" alt="COO" style="object-fit: cover;">
+                                <div class="team-overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-3 translate-middle-y d-flex justify-content-center" style="transform: translateY(100%); transition: transform 0.3s ease;">
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="far fa-envelope"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title mb-1">Ana Gutiérrez</h5>
+                                <p class="text-primary fw-semibold mb-2">Directora de Operaciones</p>
+                                <p class="card-text text-muted small mb-0">Experta en optimización de procesos y gestión de la cadena de suministro tecnológico.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card team-card border-0 shadow-sm hover-shadow transition h-100">
+                            <div class="position-relative overflow-hidden rounded-top" style="padding-top: 100%;">
+                                <img th:src="@{/img/team1.jpg}" class="position-absolute top-0 start-0 w-100 h-100" alt="CTO" style="object-fit: cover;">
+                                <div class="team-overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-3 translate-middle-y d-flex justify-content-center" style="transform: translateY(100%); transition: transform 0.3s ease;">
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="far fa-envelope"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title mb-1">Luis Paredes</h5>
+                                <p class="text-primary fw-semibold mb-2">Director de Tecnología</p>
+                                <p class="card-text text-muted small mb-0">Innovador y visionario, responsable de evaluar y seleccionar nuestros productos tecnológicos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card team-card border-0 shadow-sm hover-shadow transition h-100">
+                            <div class="position-relative overflow-hidden rounded-top" style="padding-top: 100%;">
+                                <img th:src="@{/img/team1.jpg}" class="position-absolute top-0 start-0 w-100 h-100" alt="CMO" style="object-fit: cover;">
+                                <div class="team-overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-3 translate-middle-y d-flex justify-content-center" style="transform: translateY(100%); transition: transform 0.3s ease;">
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+                                    <a th:href="@{#}" class="text-white mx-2"><i class="far fa-envelope"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h5 class="card-title mb-1">María Rojas</h5>
+                                <p class="text-primary fw-semibold mb-2">Directora de Marketing</p>
+                                <p class="card-text text-muted small mb-0">Creativa y estratégica, especialista en marketing digital y experiencia del cliente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="cta-section py-5 bg-primary text-white">
+            <div class="container-fluid container-lg py-4">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <h2 class="fw-bold mb-3">¿Listo para unirte a nuestra comunidad?</h2>
+                        <p class="lead mb-0">Descubre los mejores productos tecnológicos con nosotros. Calidad y servicio garantizado.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a th:href="@{/tienda}" class="btn btn-light btn-lg px-4 me-2">Explorar Productos</a>
+                        <a th:href="@{/contacto}" class="btn btn-outline-light btn-lg px-4">Contáctanos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <section class="py-6 my-0 bg-light" style="padding-top: 4.5rem; padding-bottom: 4.5rem;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                            <i class="fas fa-truck fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="h6 mb-1 fw-semibold">Envío Gratis</h4>
+                            <p class="small text-muted mb-0">En pedidos mayores a $99</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                            <i class="fas fa-question-circle fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="h6 mb-1 fw-semibold">Soporte 24/7</h4>
+                            <p class="small text-muted mb-0">Chat en vivo o llamada</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                            <i class="fas fa-credit-card fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="h6 mb-1 fw-semibold">Pago en Línea</h4>
+                            <p class="small text-muted mb-0">Servicios de pago seguros</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                            <i class="fas fa-sync fa-2x text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="h6 mb-1 fw-semibold">Devolución Fácil</h4>
+                            <p class="small text-muted mb-0">Compras sin preocupaciones</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <div th:replace="~{fragments/carrito-modal :: carrito-modal}"></div>
+    <div th:replace="~{fragments/footer :: scripts}"></div>
+</body>
+
+</html>

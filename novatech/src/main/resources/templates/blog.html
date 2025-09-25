@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head}">
+</head>
+
+<body>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+
+    <main class="pt-4 mt-4">
+        <section class="py-5 bg-light">
+            <div class="container-fluid container-lg py-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="mb-4">
+                            <h1 class="display-4 fw-bold mb-4">Blog NovaTech</h1>
+                            <p class="lead mb-4">Descubre las últimas tendencias y noticias del mundo de la tecnología y el comercio electrónico</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a th:href=@{#articulos} class="btn btn-primary">Ver artículos</a>
+                                <a th:href=@{#categorias} class="btn btn-outline-secondary">Explorar categorías</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative rounded-4 overflow-hidden shadow-lg">
+                            <img th:src="@{img/blog-featured.jpg}" alt="Blog NovaTech" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
+                            <div class="position-absolute bottom-0 start-0 w-100 p-4" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                                <span class="badge bg-primary mb-2">Destacado</span>
+                                <h3 class="text-white">El Futuro de la Inteligencia Artificial en 2023</h3>
+                                <div class="d-flex align-items-center text-white">
+                                    <span><i class="far fa-calendar-alt me-2"></i>15 Agosto, 2023</span>
+                                    <span class="ms-3"><i class="far fa-eye me-2"></i>1.5k vistas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="blog-content py-5" id="articulos">
+            <div class="container-fluid container-lg">
+                <div class="row">
+
+                    <div class="col-lg-8">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2 class="fw-bold mb-0">Artículos Recientes</h2>
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ordenar por
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                                    <li><a class="dropdown-item" th:href="@{#}">Más recientes</a></li>
+                                    <li><a class="dropdown-item" th:href="@{#}">Más populares</a></li>
+                                    <li><a class="dropdown-item" th:href="@{#}">Más comentados</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <article class="card mb-5 border-0 shadow-sm hover-shadow transition-300">
+                            <div class="card-body p-0">
+                                <div class="row g-0">
+                                    <div class="col-md-5">
+                                        <div class="h-100" style="min-height: 250px;">
+                                            <img th:src="@{img/blog-featured.jpg}" alt="Inteligencia Artificial" class="img-fluid h-100 w-100" style="object-fit: cover;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="p-4 h-100 d-flex flex-column">
+                                            <div class="mb-2">
+                                                <span class="badge bg-primary">Inteligencia Artificial</span>
+                                                <span class="text-muted ms-2">15 Agosto, 2023</span>
+                                            </div>
+                                            <h2 class="card-title h3 fw-bold">El Futuro de la Inteligencia Artificial en 2023
+                                            </h2>
+                                            <p class="card-text flex-grow-1">La inteligencia artificial está transformando rápidamente cómo interactuamos con la tecnología en nuestra vida diaria. Desde asistentes virtuales hasta sistemas de reconocimiento facial, la IA está en todas
+                                                partes.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a th:href="@{#}" class="btn btn-primary">Leer más</a>
+                                                <div>
+                                                    <a th:href="@{#}" class="text-decoration-none me-2 text-secondary"><i
+                                                            class="far fa-heart"></i> 245</a>
+                                                    <a th:href="@{#}" class="text-decoration-none me-2 text-secondary"><i
+                                                            class="far fa-comment"></i> 35</a>
+                                                    <a th:href="@{#}" class="text-decoration-none text-secondary"><i
+                                                            class="fas fa-share"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+
+                        <h3 class="fw-bold mt-5 mb-4">Más Artículos</h3>
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                            <div class="col">
+                                <article class="card h-100 border-0 shadow-sm hover-shadow transition-300">
+                                    <div class="position-relative">
+                                        <div class="card-img-container overflow-hidden" style="height: 200px;">
+                                            <img th:src="@{img/slider1.jpg}" class="card-img-top img-fluid" alt="Smartphones 2023" style="object-fit: cover; height: 100%; width: 100%;">
+                                        </div>
+                                        <span class="badge bg-info position-absolute top-0 end-0 m-3">Smartphones</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="small text-muted mb-2">
+                                            <i class="far fa-calendar-alt me-1"></i> 10 Agosto, 2023
+                                        </div>
+                                        <h3 class="card-title h5 fw-bold">Los Mejores Smartphones del 2023</h3>
+                                        <p class="card-text">Una comparativa detallada de los smartphones más innovadores lanzados este año, analizando rendimiento, cámaras y batería.
+                                        </p>
+                                    </div>
+                                    <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+                                        <a th:href="@{#}" class="btn btn-sm btn-outline-primary">Leer más</a>
+                                        <div>
+                                            <a th:href="@{#}" class="text-decoration-none me-2 text-secondary"><i
+                                                    class="far fa-heart"></i> 120</a>
+                                            <a th:href="@{#}" class="text-decoration-none text-secondary"><i
+                                                    class="far fa-comment"></i> 18</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+
+
+                            <div class="col">
+                                <article class="card h-100 border-0 shadow-sm hover-shadow transition-300">
+                                    <div class="position-relative">
+                                        <div class="card-img-container overflow-hidden" style="height: 200px;">
+                                            <img th:src="@{img/slider2.jpg}" class="card-img-top img-fluid" alt="5G Technology" style="object-fit: cover; height: 100%; width: 100%;">
+                                        </div>
+                                        <span class="badge bg-success position-absolute top-0 end-0 m-3">Conectividad</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="small text-muted mb-2">
+                                            <i class="far fa-calendar-alt me-1"></i> 5 Agosto, 2023
+                                        </div>
+                                        <h3 class="card-title h5 fw-bold">Cómo la Tecnología 5G Está Revolucionando las Comunicaciones
+                                        </h3>
+                                        <p class="card-text">Exploramos el impacto del 5G en la velocidad de internet, IoT y las nuevas posibilidades para empresas y consumidores.</p>
+                                    </div>
+                                    <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+                                        <a th:href="@{#}" class="btn btn-sm btn-outline-primary">Leer más</a>
+                                        <div>
+                                            <a th:href="@{#}" class="text-decoration-none me-2 text-secondary"><i
+                                                    class="far fa-heart"></i> 95</a>
+                                            <a th:href="@{#}" class="text-decoration-none text-secondary"><i
+                                                    class="far fa-comment"></i> 12</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+
+
+                            <div class="col">
+                                <article class="card h-100 border-0 shadow-sm hover-shadow transition-300">
+                                    <div class="position-relative">
+                                        <div class="card-img-container overflow-hidden" style="height: 200px;">
+                                            <img th:src="@{img/blog1.jpg}" class="card-img-top img-fluid" alt="Smart Home" style="object-fit: cover; height: 100%; width: 100%;">
+                                        </div>
+                                        <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3">Smart
+                                            Home</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="small text-muted mb-2">
+                                            <i class="far fa-calendar-alt me-1"></i> 29 Julio, 2023
+                                        </div>
+                                        <h3 class="card-title h5 fw-bold">Guía Definitiva para Convertir tu Casa en un Hogar Inteligente</h3>
+                                        <p class="card-text">Todo lo que necesitas saber para empezar a automatizar tu hogar, desde asistentes virtuales hasta sistemas de seguridad.</p>
+                                    </div>
+                                    <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+                                        <a th:href="@{#}" class="btn btn-sm btn-outline-primary">Leer más</a>
+                                        <div>
+                                            <a th:href="@{#}" class="text-decoration-none me-2 text-secondary"><i
+                                                    class="far fa-heart"></i> 87</a>
+                                            <a th:href="@{#}" class="text-decoration-none text-secondary"><i
+                                                    class="far fa-comment"></i> 9</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+
+
+                            <div class="col">
+                                <article class="card h-100 border-0 shadow-sm hover-shadow transition-300">
+                                    <div class="position-relative">
+                                        <div class="card-img-container overflow-hidden" style="height: 200px;">
+                                            <img th:src="@{img/product1.webp}" class="card-img-top img-fluid" alt="Cybersecurity" style="object-fit: cover; height: 100%; width: 100%;">
+                                        </div>
+                                        <span class="badge bg-danger position-absolute top-0 end-0 m-3">Ciberseguridad</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="small text-muted mb-2">
+                                            <i class="far fa-calendar-alt me-1"></i> 22 Julio, 2023
+                                        </div>
+                                        <h3 class="card-title h5 fw-bold">Protege tus Datos: Consejos Esenciales de Ciberseguridad
+                                        </h3>
+                                        <p class="card-text">Aprende a proteger tu información personal y empresarial con estos consejos prácticos de expertos en seguridad.</p>
+                                    </div>
+                                    <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+                                        <a th:href="@{#}" class="btn btn-sm btn-outline-primary">Leer más</a>
+                                        <div>
+                                            <a th:href="@{#}" class="text-decoration-none me-2 text-secondary"><i
+                                                    class="far fa-heart"></i> 64</a>
+                                            <a th:href="@{#}" class="text-decoration-none text-secondary"><i
+                                                    class="far fa-comment"></i> 7</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
+
+                        <nav aria-label="Blog pagination" class="mt-4">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" th:href="@{#}" tabindex="-1" aria-disabled="true">Anterior</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" th:href="@{#}">1</a></li>
+                                <li class="page-item"><a class="page-link" th:href="@{#}">2</a></li>
+                                <li class="page-item"><a class="page-link" th:href="@{#}">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" th:href="@{#}">Siguiente</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+
+                    <div class="col-lg-4">
+
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-3">Buscar</h4>
+                                <form>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Buscar artículos...">
+                                        <button class="btn btn-primary" type="submit"><i
+                                                class="fas fa-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <div class="card border-0 shadow-sm mb-4" id="categorias">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-3">Categorías</h4>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item px-0 py-2 border-bottom d-flex justify-content-between align-items-center">
+                                        <a th:href="@{#}" class="text-decoration-none text-dark fw-medium"><i
+                                                class="fas fa-brain text-primary me-2"></i>Inteligencia Artificial</a>
+                                        <span class="badge bg-primary rounded-pill">12</span>
+                                    </li>
+                                    <li class="list-group-item px-0 py-2 border-bottom d-flex justify-content-between align-items-center">
+                                        <a th:href="@{#}" class="text-decoration-none text-dark fw-medium"><i
+                                                class="fas fa-mobile-alt text-info me-2"></i>Smartphones</a>
+                                        <span class="badge bg-info rounded-pill">24</span>
+                                    </li>
+                                    <li class="list-group-item px-0 py-2 border-bottom d-flex justify-content-between align-items-center">
+                                        <a th:href="@{#}" class="text-decoration-none text-dark fw-medium"><i
+                                                class="fas fa-headphones text-secondary me-2"></i>Gadgets</a>
+                                        <span class="badge bg-secondary rounded-pill">8</span>
+                                    </li>
+                                    <li class="list-group-item px-0 py-2 border-bottom d-flex justify-content-between align-items-center">
+                                        <a th:href="@{#}" class="text-decoration-none text-dark fw-medium"><i
+                                                class="fas fa-home text-warning me-2"></i>Smart Home</a>
+                                        <span class="badge bg-warning text-dark rounded-pill">15</span>
+                                    </li>
+                                    <li class="list-group-item px-0 py-2 d-flex justify-content-between align-items-center">
+                                        <a th:href="@{#}" class="text-decoration-none text-dark fw-medium"><i
+                                                class="fas fa-shield-alt text-danger me-2"></i>Ciberseguridad</a>
+                                        <span class="badge bg-danger rounded-pill">10</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-3">Artículos Populares</h4>
+                                <div class="popular-posts">
+                                    <div class="d-flex mb-3 pb-3 border-bottom">
+                                        <div class="flex-shrink-0">
+                                            <img th:src="@{img/blog1.jpg}" alt="Tendencias" class="rounded" width="70" height="70" style="object-fit: cover;">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-1 fw-bold"><a th:href="@{#}" class="text-decoration-none text-dark">Las Tendencias Tecnológicas
+                                                    que Marcarán 2024</a></h6>
+                                            <div class="small text-muted">
+                                                <i class="far fa-calendar-alt me-1"></i> Hace 3 días
+                                                <span class="mx-2">|</span>
+                                                <i class="far fa-eye me-1"></i> 1.2k vistas
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mb-3 pb-3 border-bottom">
+                                        <div class="flex-shrink-0">
+                                            <img th:src="@{img/slider2.jpg}" alt="Computación Cuántica" class="rounded" width="70" height="70" style="object-fit: cover;">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-1 fw-bold"><a th:href="@{#}" class="text-decoration-none text-dark">Computación Cuántica: El
+                                                    Futuro del Procesamiento</a></h6>
+                                            <div class="small text-muted">
+                                                <i class="far fa-calendar-alt me-1"></i> Hace 1 semana
+                                                <span class="mx-2">|</span>
+                                                <i class="far fa-eye me-1"></i> 985 vistas
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <img th:src="@{img/product1.webp}" alt="Realidad Virtual" class="rounded" width="70" height="70" style="object-fit: cover;">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-1 fw-bold"><a th:href="@{#}" class="text-decoration-none text-dark">Realidad Virtual: Más Allá
+                                                    del Entretenimiento</a></h6>
+                                            <div class="small text-muted">
+                                                <i class="far fa-calendar-alt me-1"></i> Hace 2 semanas
+                                                <span class="mx-2">|</span>
+                                                <i class="far fa-eye me-1"></i> 754 vistas
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-body p-4">
+                                    <h4 class="fw-bold mb-3">Etiquetas</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <a th:href="@{#}" class="badge bg-light text-dark text-decoration-none p-2">Tecnología</a>
+                                        <a th:href="@{#}" class="badge bg-light text-dark text-decoration-none p-2">IA</a>
+                                        <a th:href="@{#}" class="badge bg-light text-dark text-decoration-none p-2">Machine
+                                            Learning</a>
+                                        <a th:href="@{#}" class="badge bg-light text-dark text-decoration-none p-2">5G</a>
+                                        <a th:href="@{#}" class="badge bg-light text-dark text-decoration-none p-2">IoT</a>
+                                        <a th:href="@{#}" class="badge bg-light text-dark text-decoration-none p-2">Cloud</a>
+                                        <a th:href="@{#}" class="badge bg-light text-dark text-decoration-none p-2">Big
+                                            Data</a>
+                                        <a th:href="@{#}" class="badge bg-light text-dark text-decoration-none p-2">Seguridad</a>
+                                        <a th:href="@{#}" class="badge bg-light text-dark text-decoration-none p-2">Smartphones</a>
+                                        <a th:href="@{#}" class="badge bg-light text-dark text-decoration-none p-2">Gadgets</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="card border-0 shadow-sm mb-4 bg-light">
+                                <div class="card-body p-4">
+                                    <h4 class="fw-bold mb-3">Suscríbete al Newsletter</h4>
+                                    <p class="text-muted mb-3">Recibe las últimas noticias y artículos directamente en tu bandeja de entrada.</p>
+                                    <form>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" placeholder="Tu correo electrónico">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">Suscribirme</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+        <section class="py-6 my-0 bg-light" style="padding-top: 4.5rem; padding-bottom: 4.5rem;">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                                <i class="fas fa-truck fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="h6 mb-1 fw-semibold">Envío Gratis</h4>
+                                <p class="small text-muted mb-0">En pedidos mayores a $99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                                <i class="fas fa-question-circle fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="h6 mb-1 fw-semibold">Soporte 24/7</h4>
+                                <p class="small text-muted mb-0">Chat en vivo o llamada</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                                <i class="fas fa-credit-card fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="h6 mb-1 fw-semibold">Pago en Línea</h4>
+                                <p class="small text-muted mb-0">Servicios de pago seguros</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                                <i class="fas fa-sync fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="h6 mb-1 fw-semibold">Devolución Fácil</h4>
+                                <p class="small text-muted mb-0">Compras sin preocupaciones</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <div th:replace="~{fragments/carrito-modal :: carrito-modal}"></div>
+    <div th:replace="~{fragments/footer :: scripts}"></div>
+</body>
+
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${producto.nombre} + ' - NovaTech'">Producto - NovaTech</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" th:href="@{/}">
+                    <span class="text-primary fw-bold">Nova</span>Tech
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/}">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" th:href="@{/tienda}">Tienda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/about}">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/blog}">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/contacto}">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/login}">
+                                <i class="fas fa-user me-1"></i> Ingresar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-shopping-cart me-1"></i>
+                                <span class="badge bg-primary rounded-pill">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container my-5">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a th:href="@{/}">Inicio</a></li>
+                    <li class="breadcrumb-item"><a th:href="@{/tienda}">Tienda</a></li>
+                    <li class="breadcrumb-item"><a th:href="@{/tienda(categoria=${producto.categoria.id})}" th:text="${producto.categoria.nombre}">Categoría</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" th:text="${producto.nombre}">Producto</li>
+                </ol>
+            </nav>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <img th:if="${producto.imagen != null && !producto.imagen.isEmpty()}" th:src="@{${producto.imagen}}" alt="Imagen del producto" class="card-img-top img-fluid">
+                        <img th:unless="${producto.imagen != null && !producto.imagen.isEmpty()}" th:src="@{/images/no-image.jpg}" alt="Imagen no disponible" class="card-img-top img-fluid">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h1 class="h2 mb-2" th:text="${producto.nombre}">Nombre del Producto</h1>
+                    <p class="text-muted mb-3" th:if="${producto.marca != null}" th:text="${producto.marca}">Marca</p>
+                    
+                    <div class="mb-3">
+                        <span class="h3 text-primary fw-bold" th:text="${'S/. ' + #numbers.formatDecimal(producto.precio, 1, 2)}">S/. 1,299.00</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <span th:if="${producto.stock > 0}" class="badge bg-success">En Stock</span>
+                        <span th:unless="${producto.stock > 0}" class="badge bg-danger">Agotado</span>
+                        <span class="ms-2" th:if="${producto.stock > 0}" th:text="${producto.stock + ' unidades disponibles'}">10 unidades disponibles</span>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="mb-3" th:text="${producto.descripcion}">Descripción del producto...</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center">
+                            <div class="input-group me-3" style="width: 120px;">
+                                <button class="btn btn-outline-secondary" type="button" onclick="decrementQuantity()">-</button>
+                                <input type="number" class="form-control text-center" id="quantity" value="1" min="1" th:max="${producto.stock}">
+                                <button class="btn btn-outline-secondary" type="button" onclick="incrementQuantity()">+</button>
+                            </div>
+                            <button class="btn btn-primary" th:disabled="${producto.stock <= 0}">
+                                <i class="fas fa-shopping-cart me-2"></i>Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center">
+                            <button class="btn btn-outline-primary me-2">
+                                <i class="far fa-heart me-1"></i> Añadir a Favoritos
+                            </button>
+                            <button class="btn btn-outline-primary">
+                                <i class="fas fa-share-alt me-1"></i> Compartir
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card border-0 bg-light p-3">
+                        <div class="d-flex mb-2">
+                            <div class="me-3">
+                                <i class="fas fa-truck text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Envío Gratis</h5>
+                                <p class="mb-0 text-muted small">En compras mayores a S/. 200</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <div class="me-3">
+                                <i class="fas fa-undo text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Devoluciones Gratuitas</h5>
+                                <p class="mb-0 text-muted small">30 días para devolver</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <i class="fas fa-shield-alt text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Garantía de 1 Año</h5>
+                                <p class="mb-0 text-muted small">Contra defectos de fabricación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Descripción</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="specifications-tab" data-bs-toggle="tab" data-bs-target="#specifications" type="button" role="tab" aria-controls="specifications" aria-selected="false">Especificaciones</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reseñas</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content p-4 border border-top-0 rounded-bottom" id="productTabsContent">
+                        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                            <p th:text="${producto.descripcion}">Descripción detallada del producto...</p>
+                        </div>
+                        <div class="tab-pane fade" id="specifications" role="tabpanel" aria-labelledby="specifications-tab">
+                            <p>Las especificaciones técnicas estarán disponibles próximamente.</p>
+                        </div>
+                        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                            <p>No hay reseñas disponibles para este producto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="mb-4">Productos Relacionados</h3>
+                    <div class="row">
+                        <div class="col-6 col-md-3 mb-4">
+                            <div class="card h-100">
+                                <div class="badge bg-danger position-absolute top-0 end-0 m-2">-15%</div>
+                                <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="Producto Relacionado">
+                                <div class="card-body">
+                                    <h5 class="card-title">Producto Relacionado 1</h5>
+                                    <p class="card-text text-primary fw-bold">S/. 999.00</p>
+                                    <button class="btn btn-sm btn-outline-primary w-100">Ver Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-4">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="Producto Relacionado">
+                                <div class="card-body">
+                                    <h5 class="card-title">Producto Relacionado 2</h5>
+                                    <p class="card-text text-primary fw-bold">S/. 1,299.00</p>
+                                    <button class="btn btn-sm btn-outline-primary w-100">Ver Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-4">
+                            <div class="card h-100">
+                                <div class="badge bg-success position-absolute top-0 end-0 m-2">Nuevo</div>
+                                <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="Producto Relacionado">
+                                <div class="card-body">
+                                    <h5 class="card-title">Producto Relacionado 3</h5>
+                                    <p class="card-text text-primary fw-bold">S/. 1,499.00</p>
+                                    <button class="btn btn-sm btn-outline-primary w-100">Ver Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-4">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/300x300" class="card-img-top" alt="Producto Relacionado">
+                                <div class="card-body">
+                                    <h5 class="card-title">Producto Relacionado 4</h5>
+                                    <p class="card-text text-primary fw-bold">S/. 899.00</p>
+                                    <button class="btn btn-sm btn-outline-primary w-100">Ver Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="mb-3 text-primary">NovaTech</h5>
+                    <p class="mb-0">Tu tienda de confianza para productos tecnológicos de alta calidad. Ofrecemos los mejores precios y servicio al cliente.</p>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-white">Inicio</a></li>
+                        <li><a href="#" class="text-decoration-none text-white">Tienda</a></li>
+                        <li><a href="#" class="text-decoration-none text-white">Nosotros</a></li>
+                        <li><a href="#" class="text-decoration-none text-white">Blog</a></li>
+                        <li><a href="#" class="text-decoration-none text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="mb-3">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Av. Principal 123, Lima</li>
+                        <li><i class="fas fa-phone me-2"></i> (01) 123-4567</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@novatech.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="mb-3">Síguenos</h5>
+                    <div class="d-flex">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <h5 class="mt-4 mb-3">Boletín</h5>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Tu email">
+                            <button class="btn btn-primary" type="submit">Suscribir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2023 NovaTech. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3">Términos y Condiciones</a>
+                    <a href="#" class="text-white">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function incrementQuantity() {
+            const input = document.getElementById('quantity');
+            const max = parseInt(input.getAttribute('max')) || 99;
+            const currentValue = parseInt(input.value) || 0;
+            if (currentValue < max) {
+                input.value = currentValue + 1;
+            }
+        }
+        
+        function decrementQuantity() {
+            const input = document.getElementById('quantity');
+            const currentValue = parseInt(input.value) || 0;
+            if (currentValue > 1) {
+                input.value = currentValue - 1;
+            }
+        }
+    </script>
+</body>
+</html> 
